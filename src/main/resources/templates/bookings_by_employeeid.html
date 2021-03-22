@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1">
+    <thead>
+    <tr>
+        <th> Employee ID </th>
+        <th> Service </th>
+        <th> Booking Status </th>
+    </tr>
+    </thead>
+    <tbody>
+    <!--    <tr th:if="${books.empty}">-->
+    <!--        <td colspan="2"> No Books Available </td>-->
+    <!--    </tr>-->
+    <tr th:each="booking : ${bookings}">
+        <td><span th:text="${booking.employeeId}">...</span></td>
+        <td><span th:text="${booking.service}"> ... </span></td>
+        <td><span th:text="${booking.bookingStatus}"> ... </span></td>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

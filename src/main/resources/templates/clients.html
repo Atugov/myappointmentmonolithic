@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1">
+    <thead>
+    <tr>
+        <th> ID </th>
+        <th> Name </th>
+        <th> Login </th>
+        <th> Password </th>
+        <th> Email </th>
+        <th> Role </th>
+        <th> Date of birth </th>
+    </tr>
+    </thead>
+    <tbody>
+    <!--    <tr th:if="${books.empty}">-->
+    <!--        <td colspan="2"> No Books Available </td>-->
+    <!--    </tr>-->
+    <tr th:each="client : ${clients}">
+        <td><span th:text="${client.id}">...</span></td>
+        <td><span th:text="${client.name}"> ... </span></td>
+        <td><span th:text="${client.login}"> ... </span></td>
+        <td><span th:text="${client.password}"> ... </span></td>
+        <td><span th:text="${client.email}"> ... </span></td>
+        <td><span th:text="${client.role}"> ... </span></td>
+        <td><span th:text="${client.dateOfBirth}"> ... </span></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
