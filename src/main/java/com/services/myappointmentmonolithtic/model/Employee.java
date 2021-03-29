@@ -7,10 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Map;
 
 @Getter
@@ -26,6 +23,7 @@ public class Employee {
     protected String login;
     protected String password;
     protected String email;
+    @Enumerated(EnumType.STRING)
     protected Role role;
 
 }

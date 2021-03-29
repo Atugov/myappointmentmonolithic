@@ -27,7 +27,7 @@ public class BookingController {
         return "bookings_by_clienid";
     }
     @GetMapping("employee{id}")
-    public String getAllBookingsBEmployeeId(Model model, @PathVariable String id){
+    public String getAllBookingsByEmployeeId(Model model, @PathVariable String id){
         Booking booking2 = new Booking();
         booking2.setEmployeeId("1");
         booking2.setBookingStatus("active");

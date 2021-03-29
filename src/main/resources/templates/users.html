@@ -8,19 +8,22 @@
 <div th:replace="fragments/base::header"></div>
 <table border="1">
     <thead>
+    <h1>ALL USERS</h1>
+    <br>
     <tr>
-        <th> ID </th>
-        <th> Name </th>
-        <th> Login </th>
-        <th> Password </th>
-        <th> Email </th>
-        <th> Role </th>
+        <th> ID</th>
+        <th> Name</th>
+        <th> Login</th>
+        <th> Password</th>
+        <th> Email</th>
+        <th> Role</th>
+        <th> Link to this user</th>
     </tr>
     </thead>
     <tbody>
-<!--    <tr th:if="${books.empty}">-->
-<!--        <td colspan="2"> No Books Available </td>-->
-<!--    </tr>-->
+    <!--    <tr th:if="${books.empty}">-->
+    <!--        <td colspan="2"> No Books Available </td>-->
+    <!--    </tr>-->
     <tr th:each="user : ${all_users}">
         <td><span th:text="${user.id}">...</span></td>
         <td><span th:text="${user.name}"> ... </span></td>
@@ -28,6 +31,7 @@
         <td><span th:text="${user.password}"> ... </span></td>
         <td><span th:text="${user.email}"> ... </span></td>
         <td><span th:text="${user.role}"> ... </span></td>
+        <td><a th:href="@{/users/}+${#strings.toLowerCase(user.role)} +${user.id}">Open profile <span th:text="${user.name}"/></a></td>
     </tr>
     </tbody>
 </table>

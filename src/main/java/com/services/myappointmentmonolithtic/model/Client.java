@@ -18,19 +18,13 @@ import java.time.LocalDate;
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     protected Long id;
-    @Column(name = "name")
     protected String name;
-    @Column(name = "login")
     protected String login;
-    @Column(name = "password")
     protected String password;
-    @Column(name = "email")
     protected String email;
-    @Column(name = "role")
+    @Enumerated(EnumType.STRING)
     protected Role role;
-    @Column(name = "date_of_birth")
     protected LocalDate dateOfBirth;
 
 

@@ -1,6 +1,7 @@
 package com.services.myappointmentmonolithtic.controller;
 
 import com.services.myappointmentmonolithtic.constants.Role;
+import com.services.myappointmentmonolithtic.exceptions.NoSuchAdminException;
 import com.services.myappointmentmonolithtic.model.Admin;
 import com.services.myappointmentmonolithtic.model.Client;
 import com.services.myappointmentmonolithtic.model.Employee;
@@ -40,10 +41,20 @@ public class UserController {
         return "users";
     }
 
-    @GetMapping("{id}")
+    @GetMapping("client{id}")
     public String getClientById(Model model, @PathVariable Long id) {
-        model.addAttribute("client", clientService.getClientById(id));
-        return "single_client";
+        model.addAttribute("clients", clientService.getClientById(id));
+        return "clients";
+    }
+    @GetMapping("admin{id}")
+    public String getAdminById(Model model, @PathVariable String id) {
+        model.addAttribute("admins_or_employees", adminService.findAdminById(id));
+        return "admins_or_employees";
+    }
+    @GetMapping("employee{id}")
+    public String getEmployeeById(Model model, @PathVariable String id) {
+        model.addAttribute("admins_or_employees", employeeService.findEmployeeById(id));
+        return "admins_or_employees";
     }
 
     @GetMapping("/clients")
@@ -61,6 +72,11 @@ public class UserController {
     @GetMapping("/admins")
     public String getAllAdmins(Model model){
         model.addAttribute("admins_or_employees", adminService.getAllAdmins());
+        return "admins_or_employees";
+    }
+    @GetMapping("admin/{name}")
+    public String getAdminByName(Model model, @PathVariable String name) throws NoSuchAdminException {
+        model.addAttribute("admins_or_employees", adminService.findAdminByName(name));
         return "admins_or_employees";
     }
 }
