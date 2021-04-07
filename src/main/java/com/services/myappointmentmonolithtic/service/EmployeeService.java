@@ -25,11 +25,16 @@ public class EmployeeService {
         employeeRepository.save(employee);
     }
 
+    public void deleteEmployee(Employee employee) {
+        employeeRepository.delete(employee);
+    }
+
     public List<Employee> getAllEmployee() {
         LOG.debug("getAllEmployee(), getting all employees");
         return employeeRepository.findAll();
     }
-    public Employee findEmployeeById(String id){
+
+    public Employee findEmployeeById(String id) {
         LOG.debug("findEmployeeById(), Receiving employee by id");
         return employeeRepository.findById(id).orElseThrow(NullPointerException::new);
     }

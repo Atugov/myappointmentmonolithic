@@ -8,24 +8,24 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-
+import java.util.List;
 
 
 @Getter
 @Setter
 @NoArgsConstructor
-@Entity(name = "clients")
+@Entity
+@Table(name = "clients")
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected Long id;
-    protected String name;
-    protected String login;
-    protected String password;
-    protected String email;
-    @Enumerated(EnumType.STRING)
-    protected Role role;
+    protected String id;
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "user_id")
+    protected User user;
     protected LocalDate dateOfBirth;
+    @OneToMany(mappedBy = "client")
+    protected List<Booking> bookings;
 
 
 }

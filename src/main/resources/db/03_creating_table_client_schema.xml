@@ -7,27 +7,23 @@
     <changeSet id="3" author="mike">
         <createTable tableName="clients">
 
-            <column name="id" type="BIGINT">
+            <column name="id" type="VARCHAR(50)">
                 <constraints nullable="false" primaryKey="true" unique="true"/>
             </column>
-            <column name="name" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="login" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="password" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="email" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="role" type="VARCHAR(50)">
+            <column name="userId" type="VARCHAR(50)">
                 <constraints nullable="true"/>
             </column>
             <column name="date_of_birth" type="TIMESTAMP">
                 <constraints nullable="true"/>
             </column>
+
         </createTable>
+<!--        <addForeignKeyConstraint baseColumnNames="userId"-->
+<!--                                 baseTableName="clients"-->
+<!--                                 constraintName="fk_userId"-->
+<!--                                 referencedColumnNames="id"-->
+<!--                                 referencedTableName="users"/>-->
     </changeSet>
 </databaseChangeLog>
+
+

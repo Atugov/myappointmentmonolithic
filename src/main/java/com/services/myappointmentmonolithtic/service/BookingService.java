@@ -25,27 +25,17 @@ public class BookingService {
         bookingRepository.save(booking);
     }
 
+    public Booking getBookingById(String id) {
+        return bookingRepository.getOne(id);
+    }
+
+    public List<Booking> getAllBookings() {
+        return bookingRepository.findAll();
+    }
+
     public void deleteBooking(Booking booking) {
         LOG.debug("deleteBooking(), deleting booking");
         bookingRepository.delete(booking);
     }
 
-    public List<Booking> getBookingsByStatus(String status) {
-        LOG.debug("getBookingsByStatus(), getting booking by status");
-        return bookingRepository.findBookingByBookingStatus(status);
-    }
-
-    public List<Booking> getBookingByService(String service) {
-        LOG.debug("getBookingByService(), getting booking by service");
-        return bookingRepository.findBookingByBookingStatus(service);
-    }
-
-    public List<Booking> getAllBookingsByClientId(String id) {
-        LOG.debug("getAllBookingsByClientId(), getting all bookings by client id");
-        return bookingRepository.findAllByClientId(id);
-    }
-    public List<Booking> getAllBookingsByEmployeeId(String id) {
-        LOG.debug("getAllBookingsByEmployeeId(), getting all bookings by employee id");
-        return bookingRepository.findAllByEmployeeId(id);
-    }
 }

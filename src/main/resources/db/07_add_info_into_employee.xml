@@ -5,7 +5,7 @@
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
     <changeSet id="7" author="mike">
         <insert tableName="employees">
-            <column name="id">3213</column>
+            <column name="id">1</column>
             <column name="name">John</column>
             <column name="login">Johnlogin</column>
             <column name="password">123456</column>

@@ -10,22 +10,18 @@
             <column name="id" type="VARCHAR(50)">
                 <constraints nullable="false" primaryKey="true" unique="true"/>
             </column>
-            <column name="name" type="VARCHAR(50)">
+            <column name="userId" type="VARCHAR(50)">
                 <constraints nullable="true"/>
             </column>
-            <column name="login" type="VARCHAR(50)">
-                <constraints nullable="true" unique="true"/>
-            </column>
-            <column name="password" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="email" type="VARCHAR(50)">
-                <constraints nullable="false" unique="true"/>
-            </column>
-            <column name="role" type="VARCHAR(50)">
+            <column name="service" type="VARCHAR(50)">
                 <constraints nullable="true"/>
             </column>
 
         </createTable>
+<!--        <addForeignKeyConstraint baseColumnNames="userId"-->
+<!--                                 baseTableName="employees"-->
+<!--                                 constraintName="fk_userId"-->
+<!--                                 referencedColumnNames="id"-->
+<!--                                 referencedTableName="users"/>-->
     </changeSet>
 </databaseChangeLog>

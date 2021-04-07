@@ -1,6 +1,5 @@
 package com.services.myappointmentmonolithtic.model;
 
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -8,21 +7,21 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.util.List;
 
+@Entity
 @Getter
 @Setter
 @NoArgsConstructor
-@Entity
-@Table(name = "employees")
-public class Employee {
+@Table(name = "provided_service")
+public class ProvidedService {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected String id;
-    @OneToOne
-    @MapsId
-    @JoinColumn(name = "user_id")
-    protected User user;
-    @OneToMany(mappedBy = "employee")
+    protected String name;
+    protected double price;
+    protected String desription;
+    @ManyToOne
+    @JoinColumn(name = "employee_id")
+    protected Employee employee;
+    @OneToMany(mappedBy = "providedService")
     protected List<Booking> bookings;
-    @OneToMany(mappedBy = "employee")
-    protected List<ProvidedService> providedServices;
 }

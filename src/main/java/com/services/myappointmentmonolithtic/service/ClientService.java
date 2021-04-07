@@ -22,28 +22,22 @@ public class ClientService {
         this.clientRepository = clientRepository;
     }
 
-    public void saveClient(Client client){
+    public void saveClient(Client client) {
         LOG.debug("saveClient(), saving client");
         clientRepository.save(client);
     }
-    public void deleteClient(Client client){
+
+    public Client getClientById(String id) {
+        return clientRepository.findById(id).orElseThrow(NullPointerException::new);
+    }
+
+    public void deleteClient(Client client) {
         LOG.debug("deleteClient(), deleting client");
         clientRepository.delete(client);
     }
-    public List<Client> getClientsByName(String name){
-        LOG.debug("getClientsByName(), getting clients by name");
-        return clientRepository.findClientsByName(name);
-    }
-    public List<Client> getClientsByDateOfBirth(LocalDate dateOfBirth){
-        LOG.debug("getClientsByDateOfBirth(), getting clients by date of birth");
-        return null;
-    }
-    public List<Client> getAllClients(){
+
+    public List<Client> getAllClients() {
         LOG.debug("getAllClients(), getting all clients");
         return clientRepository.findAll();
-    }
-    public Client getClientById(Long id){
-        LOG.debug("getClientById(), getting clients by id");
-        return clientRepository.findById(id).orElseThrow(NoSuchElementException::new);
     }
 }

@@ -41,11 +41,11 @@ public class UserController {
         return "users";
     }
 
-    @GetMapping("client{id}")
-    public String getClientById(Model model, @PathVariable Long id) {
-        model.addAttribute("clients", clientService.getClientById(id));
-        return "clients";
-    }
+//    @GetMapping("client{id}")
+//    public String getClientById(Model model, @PathVariable Long id) {
+//        model.addAttribute("clients", clientService.getClientById(id));
+//        return "clients";
+//    }
     @GetMapping("admin{id}")
     public String getAdminById(Model model, @PathVariable String id) {
         model.addAttribute("admins_or_employees", adminService.findAdminById(id));
@@ -74,9 +74,9 @@ public class UserController {
         model.addAttribute("admins_or_employees", adminService.getAllAdmins());
         return "admins_or_employees";
     }
-    @GetMapping("admin/{name}")
-    public String getAdminByName(Model model, @PathVariable String name) throws NoSuchAdminException {
-        model.addAttribute("admins_or_employees", adminService.findAdminByName(name));
-        return "admins_or_employees";
-    }
+//    @GetMapping("admin/{name}")
+//    public String getAdminByName(Model model, @PathVariable String name) throws NoSuchAdminException {
+//        model.addAttribute("admins_or_employees", adminService.findAdminByName(name));
+//        return "admins_or_employees";
+//    }
 }

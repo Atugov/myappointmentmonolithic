@@ -1,0 +1,49 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="11" author="mike">
+        <createTable tableName="users">
+
+            <column name="id" type="VARCHAR(50)">
+                <constraints nullable="false" primaryKey="true" unique="true"/>
+            </column>
+            <column name="clientId" type="VARCHAR(50)">
+                <constraints nullable="true" unique="true"/>
+            </column>
+            <column name="adminId" type="VARCHAR(50)">
+                <constraints nullable="true" unique="true"/>
+            </column>
+            <column name="employeeId" type="VARCHAR(50)">
+                <constraints nullable="true" unique="true"/>
+            </column>
+            <column name="login" type="VARCHAR(50)">
+                <constraints nullable="true" unique="true"/>
+            </column>
+            <column name="password" type="VARCHAR(50)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="email" type="VARCHAR(50)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+
+        </createTable>
+        <addForeignKeyConstraint baseColumnNames="clientId"
+                                 baseTableName="users"
+                                 constraintName="fk_clientId"
+                                 referencedColumnNames="id"
+                                 referencedTableName="clients"/>
+        <addForeignKeyConstraint baseColumnNames="adminId"
+                                 baseTableName="users"
+                                 constraintName="fk_adminId"
+                                 referencedColumnNames="id"
+                                 referencedTableName="admins"/>
+        <addForeignKeyConstraint baseColumnNames="employeeId"
+                                 baseTableName="users"
+                                 constraintName="fk_employeeId"
+                                 referencedColumnNames="id"
+                                 referencedTableName="employees"/>
+    </changeSet>
+</databaseChangeLog>

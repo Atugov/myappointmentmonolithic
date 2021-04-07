@@ -8,7 +8,7 @@
     <include file="classpath:db/02_creating_table_booking_schema.xml"/>
     <include file="classpath:db/03_creating_table_client_schema.xml"/>
     <include file="classpath:db/04_creating_table_employee_schema.xml"/>
-    <include file="classpath:db/05_add_info_into_admin.xml"/>
-    <include file="classpath:db/06_add_info_into_client.xml"/>
-    <include file="classpath:db/07_add_info_into_employee.xml"/>
+<!--    <include file="classpath:db/05_add_info_into_admin.xml"/>-->
+<!--    <include file="classpath:db/06_add_info_into_client.xml"/>-->
+<!--    <include file="classpath:db/07_add_info_into_employee.xml"/>-->
 </databaseChangeLog>

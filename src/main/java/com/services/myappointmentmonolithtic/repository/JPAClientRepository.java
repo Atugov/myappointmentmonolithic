@@ -9,9 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.time.LocalDate;
 import java.util.List;
 
-public interface JPAClientRepository extends JpaRepository<Client, Long> {
+public interface JPAClientRepository extends JpaRepository<Client, String> {
 //    @Query(value = "SELECT * FROM clients WHERE name = name1")
-    List<Client> findClientsByName(String name);
-//    List<Client> findClientByDateOfBirth(LocalDate dateOfBirth);
 
 }
