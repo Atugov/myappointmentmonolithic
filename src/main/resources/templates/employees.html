@@ -10,10 +10,11 @@
     <tr>
         <th> ID </th>
         <th> Name </th>
-        <th> Login </th>
-        <th> Password </th>
-        <th> Email </th>
-        <th> Role </th>
+        <th> Email</th>
+        <th> Bookings </th>
+        <th> Provided Services </th>
+
+
     </tr>
     </thead>
     <tbody>
@@ -22,11 +23,11 @@
     <!--    </tr>-->
     <tr th:each="employee : ${employees}">
         <td><span th:text="${employee.id}">...</span></td>
-        <td><span th:text="${employee.name}"> ... </span></td>
-        <td><span th:text="${employee.login}"> ... </span></td>
-        <td><span th:text="${employee.password}"> ... </span></td>
-        <td><span th:text="${employee.email}"> ... </span></td>
-        <td><span th:text="${employee.role}"> ... </span></td>
+        <td><span th:text="${employee.user.name}"> ... </span></td>
+        <td><span th:text="${employee.user.email}"> ... </span></td>
+<!--        <td><span th:text="${employee.bookings.beginningTime}"> ... </span></td>-->
+<!--        <td><span th:text="${employee.providedServices.name}"> ... </span></td>-->
+
     </tr>
     </tbody>
 </table>

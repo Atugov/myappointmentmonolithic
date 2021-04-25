@@ -1,7 +1,6 @@
 package com.services.myappointmentmonolithtic.model;
 
 
-import com.services.myappointmentmonolithtic.constants.Role;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,7 +19,8 @@ public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected String id;
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @OneToOne
+    @MapsId
     @JoinColumn(name = "user_id")
     protected User user;
     protected LocalDate dateOfBirth;

@@ -32,6 +32,9 @@ public class BookingService {
     public List<Booking> getAllBookings() {
         return bookingRepository.findAll();
     }
+    public List<Booking> getAllBookingsByClientId(String id){
+        return bookingRepository.findAllByClientId(id);
+    }
 
     public void deleteBooking(Booking booking) {
         LOG.debug("deleteBooking(), deleting booking");

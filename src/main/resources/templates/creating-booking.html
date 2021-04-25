@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:rel="stylesheet" th:href="@{/assets/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.css}"/>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/5.15.2/css/all.css} "/>
+</head>
+<body>
+<h3>To save your booking, please use the form below:</h3>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-4 mt-5">
+                <form method="post" th:action="@{/booking/new-booking}" th:object="${booking}">
+
+                    <div>
+                        <select name="employeeId">
+                            <option th:each="service : ${providedService}"
+                                    th:value="${service.employee.id}"
+                                    th:text="${service.employee.user.name}" >Employee</option>
+
+                        </select>
+                    </div>
+                    <div>
+                        <select name="providedServiceId">
+                            <option th:each="service : ${providedService}"
+                                    th:value="${service.id}"
+                                    th:text="${service.name}">Service</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="date1">Beginning time:</label>
+                        <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                            <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1"
+                                   th:field="*{beginningTime}" id="date1" placeholder="Beginning Time"/>
+                            <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-calendar-alt"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="date2">Finishing time:</label>
+                        <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
+                            <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1"
+                                   th:field="*{finishingTime}" id="date2" placeholder="Finishing Time"/>
+                            <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-calendar-alt"></i></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary" type="submit">Submit form</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    <script th:src="@{/assets/moment/moment.min.js}"></script>
+    <script th:src="@{/assets/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.js}"></script>
+
+    <script>
+        $.fn.datetimepicker.Constructor.Default = $.extend({}, $.fn.datetimepicker.Constructor.Default, {
+            icons: {
+                time: 'far fa-clock',
+                date: 'far fa-calendar',
+                up: 'fas fa-arrow-up',
+                down: 'fas fa-arrow-down',
+                previous: 'fas fa-chevron-left',
+                next: 'fas fa-chevron-right',
+                today: 'far fa-calendar-check-o',
+                clear: 'far fa-trash',
+                close: 'far fa-times'
+            } });
+
+        $('#datetimepicker1').datetimepicker({
+            format: 'DD/MM/YYYY h:mm A'
+        });
+        $('#datetimepicker2').datetimepicker({
+            format: 'DD/MM/YYYY h:mm A'
+        });
+    </script>
+
+</body>
+</html>
+

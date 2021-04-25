@@ -18,7 +18,7 @@ public class ProvidedService {
     protected String id;
     protected String name;
     protected double price;
-    protected String desription;
+    protected String description;
     @ManyToOne
     @JoinColumn(name = "employee_id")
     protected Employee employee;

@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface JPABookingRepository extends JpaRepository<Booking, String> {
 
+    List<Booking> findAllByClientId(String id);
+
 }

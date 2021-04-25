@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>To save new user, please use the form below:</h3>
+<form th:action="@{/users/saveuser}" method="post">
+
+    <div>
+        <label>name:</label>
+        <input type="text" name="name" placeholder="name" />
+    </div>
+    <div>
+        <label>login:</label>
+        <input type="text" name="login" placeholder="login" />
+    </div>
+    <div>
+        <label>password:</label>
+        <input type="text" name="password" placeholder="password" />
+    </div>
+    <div>
+        <label>email:</label>
+        <input type="text" name="email" placeholder="email" />
+    </div>
+
+    <input type="hidden" th:value="${isClient}" th:attr="name='isClient'" />
+    <input type="hidden" th:value="${isAdmin}" th:attr="name='isAdmin'" />
+    <input type="hidden" th:value="${isEmployee}" th:attr="name='isEmployee'" />
+
+
+    <input type="submit" value="Save"/>
+</form>
+</body>
+</html>

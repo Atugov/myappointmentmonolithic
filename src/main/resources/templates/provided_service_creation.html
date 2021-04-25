@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>To save new user, please use the form below:</h3>
+<form th:action="@{/providedservice/create-new-provided-service}" method="post">
+
+    <div>
+        <label>Enter name of service:</label>
+        <input type="text" name="name" placeholder="name" />
+    </div>
+    <div>
+        <label>Enter price:</label>
+        <input type="text" name="price" placeholder="price" />
+    </div>
+    <div>
+        <label>Enter description:</label>
+        <input type="text" name="description" placeholder="description" />
+    </div>
+    <div>
+        <select name="employeeName">
+            <option th:each="employee : ${employees}"
+                    th:value="${employee.user.name}"
+                    th:text="${employee.user.name}">Wireframe</option>
+        </select>
+    </div>
+
+    <input type="submit" value="Save"/>
+</form>
+</body>
+</html>

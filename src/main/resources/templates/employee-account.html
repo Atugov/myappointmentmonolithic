@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:replace="fragments/base::header"></div>
+
+
+<h1>Welcome to your account</h1><h1 th:text="${user.name}"></h1>
+<a href="/users/allemployees">To create my schedule</a>
+<br/>
+<a href="/users/allclients">To manage my services</a>
+<br/>
+<a href="/users/allclients">To see all my appointment</a>
+
+
+<div th:replace="fragments/base::footer"></div>
+</body>
+</html>
+
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div th:replace="fragments/base::header"></div>-->
+
+
+<!--    <h1>Welcome to your account</h1>-->
+<!--<form th:action="@{/booking/new1}" method="post">-->
+<!--    <h1 th:text="${user.name}"></h1>-->
+<!--    <br>-->
+<!--    <p>For creating an appointment</p>-->
+
+<!--    <p>Choose your service:</p>-->
+<!--    <div>-->
+<!--        <select name="providedServiceId">-->
+<!--            <option th:each="service : ${services}"-->
+<!--                    th:value="${service.id}"-->
+<!--                    th:text="${service.name}">Service</option>-->
+<!--        </select>-->
+<!--    </div>-->
+<!--        <input type="submit" value="next"/>-->
+<!--    </form>-->
+<!--<div th:replace="fragments/base::footer"></div>-->
+<!--</body>-->
+<!--</html>-->

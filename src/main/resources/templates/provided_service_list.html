@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:replace="fragments/base::header"></div>
+<table border="1">
+    <thead>
+    <h1>ALL Services</h1>
+    <br>
+    <tr>
+        <th> ID</th>
+        <th> Name</th>
+        <th> Price</th>
+        <th> Description</th>
+        <th> Employee name</th>
+        <!--        <th> Link to this user</th>-->
+    </tr>
+    </thead>
+    <tbody>
+    <!--    <tr th:if="${books.empty}">-->
+    <!--        <td colspan="2"> No Books Available </td>-->
+    <!--    </tr>-->
+    <tr th:each="service : ${services}">
+        <td><span th:text="${service.id}">...</span></td>
+        <td><span th:text="${service.name}"> ... </span></td>
+        <td><span th:text="${service.price}"> ... </span></td>
+        <td><span th:text="${service.description}"> ... </span></td>
+        <td><span th:text="${service.employee.user.name}"> ... </span></td>
+    </tr>
+    </tbody>
+</table>
+<div th:replace="fragments/base::footer"></div>
+</body>
+</html>

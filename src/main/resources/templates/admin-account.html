@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:replace="fragments/base::header"></div>
+
+
+    <h1>Welcome to your account</h1><h1 th:text="${user.name}"></h1>
+<a href="/users/allemployees">To see all employees</a>
+<br/>
+<a href="/users/allclients">To see all clients</a>
+
+<div th:replace="fragments/base::footer"></div>
+</body>
+</html>

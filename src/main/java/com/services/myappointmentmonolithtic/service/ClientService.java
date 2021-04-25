@@ -2,13 +2,12 @@ package com.services.myappointmentmonolithtic.service;
 
 import com.services.myappointmentmonolithtic.model.Client;
 import com.services.myappointmentmonolithtic.repository.JPAClientRepository;
+import com.services.myappointmentmonolithtic.repository.JPAUserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.List;
-import java.util.NoSuchElementException;
 
 
 @Service
@@ -16,10 +15,13 @@ public class ClientService {
 
     private final JPAClientRepository clientRepository;
 
+
+
     private static final Logger LOG = LoggerFactory.getLogger(ClientService.class);
 
     public ClientService(JPAClientRepository clientRepository) {
         this.clientRepository = clientRepository;
+
     }
 
     public void saveClient(Client client) {
@@ -39,5 +41,6 @@ public class ClientService {
     public List<Client> getAllClients() {
         LOG.debug("getAllClients(), getting all clients");
         return clientRepository.findAll();
+
     }
 }

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Please choose a role or few:</h3>
+<form th:action="@{/users/registration}" method="post">
+
+    <div>
+        <label>client:</label>
+        <input type="checkbox" name="isClient" th:checked="${isClient}">
+    </div>
+    <div>
+        <label>admin:</label>
+        <input type="checkbox" name="isAdmin" th:checked="${isAdmin}">
+    </div>
+    <div>
+        <label>employee:</label>
+        <input type="checkbox" name="isEmployee" th:checked="${isEmployee}">
+    </div>
+
+    <input type="submit" value="next"/>
+</form>
+</body>
+</html>

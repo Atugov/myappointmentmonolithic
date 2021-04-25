@@ -8,13 +8,14 @@
 <table border="1">
     <thead>
     <tr>
-        <th> ID </th>
-        <th> Name </th>
-        <th> Login </th>
-        <th> Password </th>
-        <th> Email </th>
-        <th> Role </th>
+
+        <th> Name</th>
+        <th> Login</th>
+        <th> Email</th>
         <th> Date of birth </th>
+
+
+
     </tr>
     </thead>
     <tbody>
@@ -22,12 +23,10 @@
     <!--        <td colspan="2"> No Books Available </td>-->
     <!--    </tr>-->
     <tr th:each="client : ${clients}">
-        <td><span th:text="${client.id}">...</span></td>
-        <td><span th:text="${client.name}"> ... </span></td>
-        <td><span th:text="${client.login}"> ... </span></td>
-        <td><span th:text="${client.password}"> ... </span></td>
-        <td><span th:text="${client.email}"> ... </span></td>
-        <td><span th:text="${client.role}"> ... </span></td>
+
+        <td><span th:text="${client.user.name}"> ... </span></td>
+        <td><span th:text="${client.user.login}"> ... </span></td>
+        <td><span th:text="${client.user.email}"> ... </span></td>
         <td><span th:text="${client.dateOfBirth}"> ... </span></td>
     </tr>
     </tbody>
